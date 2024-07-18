@@ -21,6 +21,8 @@ public class Venta {
     private Long id;
     private LocalDate fecha;
     private BigDecimal total;
+    private Boolean devolucion;
+    private String estado;
 
     @ManyToOne
     @JoinColumn(name = "usuario_id")

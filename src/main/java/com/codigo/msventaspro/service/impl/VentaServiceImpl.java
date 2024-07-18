@@ -1,5 +1,6 @@
 package com.codigo.msventaspro.service.impl;
 
+import com.codigo.msventaspro.aggregates.constants.Constants;
 import com.codigo.msventaspro.dao.CalzadoRepository;
 import com.codigo.msventaspro.dao.VentaRepository;
 import com.codigo.msventaspro.entities.Calzado;
@@ -24,6 +25,8 @@ public class VentaServiceImpl implements VentaService {
     @Transactional
     @Override
     public Venta save(Venta venta) {
+        venta.setDevolucion(false);
+        venta.setEstado(Constants.ESTADO_PAGADO);
         Venta nuevaVenta = ventaRepository.save(venta);
 
         // Actualizar el stock de cada calzado en la venta y asociar los detalles con la venta
